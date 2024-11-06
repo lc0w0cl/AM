@@ -8,7 +8,7 @@ const routes = [
   },
   {
     path: '/assets',
-    name: 'AssetQuery',V
+    name: 'AssetQuery',
     component: AssetQuery
   }
 ]
