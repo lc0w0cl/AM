@@ -1,30 +1,47 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup lang="ts">
+import { Document } from '@element-plus/icons-vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="app-container">
+    <el-container>
+      <el-aside width="200px">
+        <el-menu
+          router
+          :default-active="$route.path"
+          class="el-menu-vertical">
+          <el-menu-item index="/assets">
+            <el-icon><Document /></el-icon>
+            <span>资产查询</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.app-container {
+  height: 100vh;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.el-container {
+  height: 100%;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.el-aside {
+  background-color: #304156;
+}
+
+.el-menu {
+  border-right: none;
+}
+
+.el-main {
+  padding: 20px;
+  background-color: #f0f2f5;
 }
 </style>
